@@ -114,6 +114,10 @@ WHERE awards.`name` = "Gioco più atteso"
 
 10. Selezionare i dati della prima software house che ha rilasciato un gioco, assieme ai dati del gioco stesso (software house id : 5)
 ```sql
+SELECT videogames.*, software_houses.* from software_houses
+JOIN videogames
+	ON software_houses.id = videogames.software_house_id
+WHERE videogames.release_date = ( SELECT MIN(videogames.release_date) FROM videogames )
 ```
 
 11. Selezionare i dati del videogame (id, name, release_date, totale recensioni) con piÃ¹ recensioni (videogame id : potrebbe uscire 449 o 398, sono entrambi a 20)
