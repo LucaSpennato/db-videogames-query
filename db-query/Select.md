@@ -1,4 +1,3 @@
-## Select `
 1.  Selezionare tutte le software house americane (3)
 ```sql 
 select * from software_houses

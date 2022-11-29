@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ex-query.md",
+                "file": "Select.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f998f99a181b2034",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Group by.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Ex-query.md",
+                "file": "Group by.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Ex-query.md",
+                "file": "Group by.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ex-query.md"
+                "file": "Group by.md"
               }
             }
           }
@@ -137,6 +150,8 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "de47caa6419f008c",
-  "lastOpenFiles": []
+  "active": "f998f99a181b2034",
+  "lastOpenFiles": [
+    "Select.md"
+  ]
 }
