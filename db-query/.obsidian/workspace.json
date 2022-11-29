@@ -30,9 +30,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "39e440055af51e1f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Join.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -99,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Group by.md",
+                "file": "Join.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Group by.md",
+                "file": "Join.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Group by.md"
+                "file": "Join.md"
               }
             }
           }
@@ -150,8 +162,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f998f99a181b2034",
+  "active": "39e440055af51e1f",
   "lastOpenFiles": [
+    "Group by.md",
+    "Join.md",
     "Select.md"
   ]
 }
