@@ -62,7 +62,7 @@ WHERE reviews.rating >= 4
 
 7. Selezionare quali giochi erano presenti nei tornei nei quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
 ```sql
-SELECT DISTINCT videogames.`name` from videogames
+SELECT DISTINCT videogames.`id` from videogames
 JOIN tournament_videogame
 	on videogames.id = tournament_videogame.videogame_id
 JOIN tournaments 
@@ -71,8 +71,7 @@ JOIN player_tournament
 	on tournaments.id = player_tournament.player_id
 JOIN players 
 	ON player_tournament.player_id = players.id
-WHERE players.`name` LIKE "s%"
--- 421
+WHERE players.`name` LIKE "S%"
 ```
 
 8. Selezionare le cittÃ  in cui Ã¨ stato giocato il gioco dell'anno del 2018 (36)
@@ -122,10 +121,44 @@ WHERE videogames.release_date = ( SELECT MIN(videogames.release_date) FROM video
 
 11. Selezionare i dati del videogame (id, name, release_date, totale recensioni) con piÃ¹ recensioni (videogame id : potrebbe uscire 449 o 398, sono entrambi a 20)
 ```sql
+SELECT videogames.*, COUNT(videogame_id) from videogames
+JOIN reviews
+	on videogames.id = reviews.videogame_id
+GROUP BY videogame_id
+HAVING COUNT(videogame_id) >= (SELECT MAX(res.ct) from (SELECT videogames.id, COUNT(videogame_id) as ct from videogames
+JOIN reviews
+	on videogames.id = reviews.videogame_id
+GROUP BY videogame_id DESC
+) as res)
 ```
 
 12. Selezionare la software house che ha vinto piÃ¹ premi tra il 2015 e il 2016 (software house id : potrebbe uscire 3 o 1, sono entrambi a 3)
 ```sql
+SELECT software_houses.*, COUNT(award_videogame.award_id) as awacount from software_houses
+JOIN videogames
+	on software_houses.id = videogames.software_house_id
+JOIN award_videogame
+	on videogames.id = award_videogame.videogame_id
+WHERE award_videogame.`year` BETWEEN 2015 and 2016
+GROUP BY software_houses.id
+limit 1
+```
+##### res 2
+```sql
+SELECT software_houses.*, COUNT(award_videogame.award_id) as awacount from software_houses
+JOIN videogames
+	on software_houses.id = videogames.software_house_id
+JOIN award_videogame
+	on videogames.id = award_videogame.videogame_id
+WHERE award_videogame.`year` BETWEEN 2015 and 2016
+GROUP BY software_houses.id
+HAVING awacount = (SELECT MAX(res.subcount) from (SELECT COUNT(award_videogame.award_id) as subcount from software_houses
+JOIN videogames
+	on software_houses.id = videogames.software_house_id
+JOIN award_videogame
+	on videogames.id = award_videogame.videogame_id
+WHERE award_videogame.`year` BETWEEN 2015 and 2016
+GROUP BY software_houses.id) as res)
 ```
 
 13. Selezionare le categorie dei videogame i quali hanno una media recensioni inferiore a 1.5 (10)
