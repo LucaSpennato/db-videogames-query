@@ -62,7 +62,7 @@ WHERE reviews.rating >= 4
 
 7. Selezionare quali giochi erano presenti nei tornei nei quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
 ```sql
-SELECT DISTINCT videogames.`id` from videogames
+SELECT DISTINCT videogames.`name` from videogames
 JOIN tournament_videogame
 	on videogames.id = tournament_videogame.videogame_id
 JOIN tournaments 
@@ -163,4 +163,15 @@ GROUP BY software_houses.id) as res)
 
 13. Selezionare le categorie dei videogame i quali hanno una media recensioni inferiore a 1.5 (10)
 ```sql
+SELECT categories.*
+FROM videogames
+JOIN reviews
+	ON videogames.id = reviews.videogame_id
+JOIN category_videogame
+	ON videogames.id = category_videogame.videogame_id
+JOIN categories
+	On category_videogame.category_id = categories.id
+GROUP BY categories.name
+HAVING AVG(reviews.rating) < 1.5
+-- modificata
 ```
